@@ -19,7 +19,7 @@ exports.forgotPassword = async (req, res) => {
     const token = jwt.sign({ email, id: searchUser.rows[0].iduser }, secret, {
       expiresIn: "5m",
     });
-    const link = `http://localhost:3001/api/v1/password/reset-password/${searchUser.rows[0].iduser}/${token}`;
+    const link = `https://service-innovatube.onrender.com/api/v1/password/reset-password/${searchUser.rows[0].iduser}/${token}`;
 
     return res.status(200).json({
         status: 200,
