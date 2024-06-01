@@ -1,6 +1,6 @@
 require("dotenv").config()
 const { queryAsync } = require('./../database/index')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require("jsonwebtoken")
 
 
