@@ -1,7 +1,7 @@
 require("dotenv").config()
 const { queryAsync } = require("../database");
 const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 
 exports.forgotPassword = async (req, res) => {
 
