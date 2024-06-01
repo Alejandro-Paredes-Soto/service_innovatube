@@ -1,5 +1,6 @@
 require("dotenv").config()
 const { queryAsync } = require("../database");
+const { sendEmail } = require("./../services/mailer")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 
@@ -20,6 +21,8 @@ exports.forgotPassword = async (req, res) => {
       expiresIn: "5m",
     });
     const link = `https://service-innovatube.onrender.com/api/v1/password/reset-password/${searchUser.rows[0].iduser}/${token}`;
+            
+    await sendEmail(email, link);
 
     return res.status(200).json({
         status: 200,
