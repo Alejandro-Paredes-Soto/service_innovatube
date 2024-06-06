@@ -57,7 +57,6 @@ exports.favoriteVideo = async (req, res) => {
         ('${title}','${idVideo}', NOW()) RETURNING idvideo
       `)
 
-      console.log(insertVideo)
 
       if (insertVideo && insertVideo.rowCount > 0) {
          
@@ -91,7 +90,6 @@ exports.favoriteVideo = async (req, res) => {
 
         
     } catch (error) {
-        console.log(error.message)
         return res.status(500).json({
             status: 500,
             message: error.message
